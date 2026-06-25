@@ -1,0 +1,110 @@
+<!DOCTYPE html><html lang="en"><head>
+  
+  
+  <meta charset="UTF-8">
+  <title>Build a Magnetic Button Hover Effect (Source Code)</title>
+  <style>
+    body { background: #0f172a; height: 100vh; margin: 0; display: flex; align-items: center; justify-content: center; }
+    .magnet-btn { padding: 20px 40px; font-size: 1.2rem; font-weight: bold; background: #38bdf8; color: white; border: none; border-radius: 50px; cursor: pointer; transition: transform 0.1s ease, box-shadow 0.3s; box-shadow: 0 10px 20px rgba(56,189,248,0.3); }
+    .magnet-btn:hover { box-shadow: 0 15px 30px rgba(56,189,248,0.5); }
+  </style>
+
+            <meta name="description" content="A beautiful component imported via Developer Studio AI.">
+            <meta name="robots" content="index, follow">
+            <meta property="og:title" content="Build a Magnetic Button Hover Effect (Source Code)">
+            <meta property="og:description" content="A beautiful component imported via Developer Studio AI.">
+            <meta property="og:image" content="https://codescompiler.com/images/posts/js-magnetic-button.png">
+            <meta name="twitter:card" content="summary_large_image">
+            <meta name="twitter:title" content="Build a Magnetic Button Hover Effect (Source Code)">
+            <meta name="twitter:description" content="A beautiful component imported via Developer Studio AI.">
+            <meta name="twitter:image" content="https://codescompiler.com/images/posts/js-magnetic-button.png">
+          </head>
+<body>
+
+<!-- ── CODESCOMPILER DEMO HEADER ── -->
+<style>
+  #cc-demo-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    height: 48px;
+    background: #1a1b26;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    color: white;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999999;
+  }
+  #cc-demo-header a { text-decoration: none; color: white; }
+  .cc-logo { font-size: 14px; font-weight: 900; }
+  .cc-logo span { color: #04aa6d; }
+  .cc-sep { width: 1px; height: 20px; background: rgba(255,255,255,0.12); margin: 0 12px; }
+  .cc-title { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65); flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .cc-actions { display: flex; gap: 8px; }
+  .cc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    color: rgba(255,255,255,0.7);
+  }
+  .cc-btn:hover { background: rgba(255,255,255,0.15); color: white; }
+  .cc-btn svg { width: 14px; height: 14px; }
+  @media (max-width: 600px) {
+    .cc-title { display: none; }
+    .cc-btn span { display: none; }
+  }
+</style>
+<header id="cc-demo-header">
+  <div style="display: flex; align-items: center; overflow: hidden;">
+    <a href="https://codescompiler.com" class="cc-logo" target="_blank" rel="dofollow"><span>Codes</span>Compiler</a>
+    <div class="cc-sep"></div>
+    <h1 class="cc-title" title="Build a Magnetic Button Hover Effect (Source Code)" style="margin: 0; font-size: 13px; font-weight: 600;">📺 Build a Magnetic Button Hover Effect (Source Code)</h1>
+  </div>
+  <div class="cc-actions">
+    <a href="https://codescompiler.com/blog/js-magnetic-button" class="cc-btn" target="_blank" rel="dofollow" title="Read the full post">
+      <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
+      <span>Back to Post</span>
+    </a>
+    <a href="index.html" class="cc-btn" target="_blank" download="js-magnetic-button.html" title="Download source file">
+      <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      <span>Download</span>
+    </a>
+    <button onclick="document.getElementById('cc-demo-header').style.display='none'" class="cc-btn" title="Hide header for fullscreen view">
+      <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l5-5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
+      <span>Fullscreen</span>
+    </button>
+  </div>
+</header>
+<!-- ================================== -->
+
+  <button class="magnet-btn">Hover Near Me</button>
+  <script>
+    const magnet = document.querySelector('.magnet-btn');
+    magnet.addEventListener('mousemove', (e) => {
+      const position = magnet.getBoundingClientRect();
+      const x = e.clientX - position.left - position.width / 2;
+      const y = e.clientY - position.top - position.height / 2;
+      magnet.style.transform = `translate(${x * 0.4}px, ${y * 0.4}px)`;
+    });
+    magnet.addEventListener('mouseleave', () => {
+      magnet.style.transform = 'translate(0px, 0px)';
+      magnet.style.transition = 'transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+      setTimeout(() => magnet.style.transition = 'transform 0.1s ease', 500);
+    });
+  </script>
+
+
+</body></html>
